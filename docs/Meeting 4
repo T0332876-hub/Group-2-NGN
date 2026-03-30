@@ -1,0 +1,30 @@
+# Meeting 4 — Google Workspace Options Meeting
+**Date:** 29th March 2026
+**Duration:** 40 minutes
+**Location:** In person
+**Chaired by:** Humoud Alshammari
+**Attendees:** Humoud Alshammari, Khalaf Burshaid
+
+## Purpose
+To present and discuss the researched options for the NGN trustee communication system and agree on the recommended approach for Google Workspace setup.
+
+## Discussion
+- Humoud and Khalaf reviewed the Google Workspace research document together
+- Discussed all three options in detail: free Gmail accounts, Google Workspace for Nonprofits, and the paid plan
+- Discussed the issue encountered when trying to create multiple Gmail accounts from one device (Google blocking multiple account creation)
+- Reviewed the two solutions proposed to Barbara: Option 1 (each trustee creates their own account) and Option 2 (team creates accounts using different devices)
+- Discussed the long term recommendation of applying for Google Workspace for Nonprofits once NGN is ready
+- Reviewed the proposed trustee email addresses and shared Drive folder structure
+
+## Decisions
+- Agreed to proceed with free Gmail accounts as the immediate solution
+- Agreed that the best approach is Option 1 — each trustee creates their own account on their own device
+- Agreed to recommend Google Workspace for Nonprofits to Barbara as the long term professional solution
+- Agreed the Google Workspace research document is complete and ready to be submitted as evidence
+
+## Actions
+- Khalaf: create one test Gmail account as proof of implementation and screenshot for evidence
+- Khalaf: set up the shared Google Drive folder structure and screenshot for evidence
+- Humoud: send follow up email to Barbara about the Gmail options if no reply received
+- Humoud: upload the Google Workspace research summary to /google-workspace on GitHub
+- Humoud: write up and upload meeting minutes to /docs on GitHub
