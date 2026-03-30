@@ -1,0 +1,26 @@
+# Meeting 3 — Implementation Planning Meeting
+**Date:** 10th March 2026
+**Duration:** 25 minutes
+**Location:** Online
+**Chaired by:** Humoud Alshammari
+**Attendees:** Humoud Alshammari, Saif Alateeqi, Jawad Aljazzaf
+
+## Purpose
+To discuss how to implement the research that had been completed and agree on next steps for each member to start the practical work.
+
+## Discussion
+- Reviewed research completed so far on the map, website, and competitor analysis
+- Discussed how to move from research phase into the implementation phase
+- Saif confirmed his plan to extract all garden locations from Barbara's PDF into a spreadsheet and begin building the interactive Google Maps embed
+- Jawad confirmed he had begun the competitor website research and would complete the analysis document
+- Agreed on the approach for implementing each task going forward
+
+## Decisions
+- Team agreed to move from research phase into active implementation
+- Saif to begin building the garden map using Google Maps embed
+- Jawad to complete the competitor research document and begin drafting the testing plan
+
+## Actions
+- Saif: extract all 25+ garden locations into a spreadsheet and start Google Maps embed
+- Jawad: complete competitor website research document and save to /research on GitHub
+- Humoud: write up and upload meeting minutes to /docs on GitHub
