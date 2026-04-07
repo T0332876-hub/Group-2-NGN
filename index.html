@@ -3,144 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nottingham Growing Network</title>
+<title>Members Area — Nottingham Growing Network</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  .login-wrapper { min-height: 60vh; display: flex; align-items: center; justify-content: center; background: var(--green-pale); padding: 3rem 2rem; }
+  .login-box { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; width: 100%; max-width: 420px; }
+  .login-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--green-light); border: 2px solid var(--border); margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+  .login-btn { width: 100%; padding: 12px; background: var(--green-dark); color: white; border: none; border-radius: 24px; font-size: 14px; font-weight: 600; font-family: 'Nunito Sans', sans-serif; cursor: pointer; margin-top: 6px; }
+  .login-btn:hover { background: #2d5509; }
+  .error-msg { background: #FCEBEB; color: #A32D2D; border: 1px solid #F09595; border-radius: 10px; padding: 10px 14px; font-size: 13px; margin-bottom: 14px; display: none; }
+  .members-content { display: none; }
+  .members-header { background: var(--green-dark); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  .members-header h1 { font-size: 22px; font-weight: 700; color: #C0DD97; }
+  .members-header p { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+  .logout-btn { background: transparent; border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; font-family: 'Nunito Sans', sans-serif; cursor: pointer; }
+  .members-tabs { display: flex; gap: 6px; padding: 1rem 2rem 0; border-bottom: 1px solid var(--border); background: var(--white); }
+  .members-tab { padding: 8px 16px; border-radius: 10px 10px 0 0; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--text-muted); border: 1px solid transparent; border-bottom: none; transition: all 0.2s; }
+  .members-tab.active { background: var(--green-pale); color: var(--green-dark); border-color: var(--border); }
+  .tab-panel { display: none; padding: 2rem; }
+  .tab-panel.active { display: block; }
+  .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .resource-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .resource-icon { font-size: 28px; margin-bottom: 10px; }
+  .resource-title { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; }
+  .resource-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+  .resource-btn { display: inline-block; background: var(--green-light); color: var(--green-dark); font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 12px; text-decoration: none; border: 1px solid var(--border); }
+  .drive-banner { background: var(--green-pale); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+  .drive-banner h3 { font-size: 16px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
+  .drive-banner p { font-size: 13px; color: var(--text-muted); }
+  .drive-btn { background: var(--green-dark); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
+  .noticeboard { display: flex; flex-direction: column; gap: 12px; }
+  .notice-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .notice-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .notice-author { font-size: 13px; font-weight: 700; color: var(--green-dark); }
+  .notice-date { font-size: 11px; color: var(--text-muted); }
+  .notice-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .notice-form { background: var(--green-pale); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .notice-form h3 { font-size: 15px; font-weight: 700; color: var(--green-dark); margin-bottom: 1rem; }
+  .trustees-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .trustee-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-align: center; }
+  .trustee-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--green-light); border: 2px solid var(--border); margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: var(--green-dark); }
+  .trustee-name { font-size: 13px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
+  .trustee-email { font-size: 11px; color: var(--green-mid); word-break: break-all; margin-bottom: 4px; }
+  .trustee-role { font-size: 11px; color: var(--text-muted); }
+  .security-box { background: var(--green-pale); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; max-width: 440px; }
+  .security-box h3 { font-size: 16px; font-weight: 700; color: var(--green-dark); margin-bottom: 0.5rem; }
+  .security-box p { font-size: 13px; color: var(--text-muted); margin-bottom: 1rem; }
+  .calendar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cal-item { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 14px; display: flex; gap: 12px; }
+  .cal-date { background: var(--green-dark); color: white; border-radius: 8px; padding: 8px 10px; text-align: center; min-width: 48px; }
+  .cal-day { font-size: 18px; font-weight: 700; color: #C0DD97; display: block; }
+  .cal-month { font-size: 10px; color: rgba(255,255,255,0.75); text-transform: uppercase; }
+  .cal-info { flex: 1; }
+  .cal-title { font-size: 13px; font-weight: 700; color: var(--green-dark); margin-bottom: 3px; }
+  .cal-detail { font-size: 12px; color: var(--text-muted); }
+</style>
 </head>
 <body>
 <div id="nav-placeholder"></div>
 
-<!-- PHOTO HERO -->
-<div class="photo-hero">
-  <img src="website/esol evem - Copy.JPG" alt="NGN community garden event" onerror="this.style.background='#EAF3DE';this.removeAttribute('src')">
-  <div class="photo-hero-overlay">
-    <div class="photo-hero-text">
-      <h1>Growing Together,<br><em>Sharing Together</em></h1>
-      <p>Nottingham Growing Network connects 35 community food growing spaces across Nottingham — bringing people together to grow, share and enjoy fresh food for everyone.</p>
-      <div class="hero-btns">
-        <a href="gardens.html" class="btn-primary">Find a Garden</a>
-        <a href="about.html" class="btn-outline" style="color:white;border-color:rgba(255,255,255,0.6);">About Us</a>
-      </div>
+<!-- LOGIN -->
+<div class="login-wrapper" id="login-section">
+  <div class="login-box">
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <div class="login-icon">🔒</div>
+      <h2 style="font-size:22px;font-weight:700;color:var(--green-dark);margin-bottom:0.5rem;">Members Area</h2>
+      <p style="font-size:13px;color:var(--text-muted);">For NGN trustees and community garden coordinators only.</p>
     </div>
+    <div class="error-msg" id="error-msg">Incorrect password. Please try again or contact your NGN trustee.</div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter members password" onkeydown="if(event.key==='Enter') login()">
+    </div>
+    <button class="login-btn" onclick="login()">Log In</button>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:1rem;text-align:center;">For access issues contact <strong>barbara@bulwellforestgarden.co.uk</strong></p>
   </div>
 </div>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stat-item"><span class="stat-num">35</span><span class="stat-label">Community Gardens</span></div>
-  <div class="stat-item"><span class="stat-num">1,200+</span><span class="stat-label">Active Members</span></div>
-  <div class="stat-item"><span class="stat-num">80+</span><span class="stat-label">Workshops Per Year</span></div>
-</div>
-
-<!-- ABOUT SUMMARY -->
-<div class="section">
-  <div class="about-split">
+<!-- MEMBERS CONTENT -->
+<div class="members-content" id="members-content">
+  <div class="members-header">
     <div>
-      <div class="divider"></div>
-      <h2 class="section-heading">About Nottingham Growing Network</h2>
-      <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:1rem;">Nottingham Growing Network builds links between 35 community food growing groups across Nottingham, focusing on healthy eating, wellbeing, sustainable gardening and biodiversity.</p>
-      <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem;">Our gardens grow food together and share it with volunteers, local food banks, and the wider community. Each garden is unique — find yours and get involved.</p>
-      <a href="about.html" class="btn-primary">Read More</a>
+      <h1>Welcome to the Members Area</h1>
+      <p>Shared resources for NGN trustees and community garden coordinators</p>
     </div>
-    <img src="website/green flag 25.jpg" alt="NGN community celebration" onerror="this.style.background='#EAF3DE'">
+    <button class="logout-btn" onclick="logout()">Log Out</button>
   </div>
-</div>
 
-<!-- PHOTO STRIP -->
-<div class="photo-strip">
-  <img src="website/harvest.jpg" alt="Garden harvest">
-  <img src="website/cook.jpg" alt="Community cooking">
-  <img src="website/vols.jpg" alt="Volunteers">
-  <img src="website/20220604_140022.jpg" alt="Community garden event">
-</div>
+  <!-- TABS -->
+  <div class="members-tabs">
+    <div class="members-tab active" onclick="showTab('resources', this)">Resources</div>
+    <div class="members-tab" onclick="showTab('noticeboard', this)">Noticeboard</div>
+    <div class="members-tab" onclick="showTab('calendar', this)">Calendar</div>
+    <div class="members-tab" onclick="showTab('trustees', this)">Trustee Directory</div>
+    <div class="members-tab" onclick="showTab('security', this)">Settings</div>
+  </div>
 
-<!-- WHAT WE OFFER -->
-<div class="section">
-  <div class="divider"></div>
-  <h2 class="section-heading">What our gardens offer</h2>
-  <p class="section-sub">Activities vary across our 35 gardens — each garden responds to its own community's needs.</p>
-  <div class="cards-grid">
-    <div class="card">
-      <div class="card-img"><img src="website/harvest.jpg" alt="Community food growing"></div>
-      <div class="card-body">
-        <span class="card-tag">Growing</span>
-        <div class="card-title">Community Food Growing</div>
-        <div class="card-desc">Grow food together and share it with volunteers, food banks, and the local community. All are welcome.</div>
+  <!-- RESOURCES TAB -->
+  <div class="tab-panel active" id="tab-resources">
+    <div class="drive-banner">
+      <div>
+        <h3>NGN Shared Google Drive</h3>
+        <p>Access shared documents, minutes and resources for all trustees.</p>
       </div>
+      <a href="https://drive.google.com" target="_blank" class="drive-btn">Open Google Drive</a>
     </div>
-    <div class="card">
-      <div class="card-img"><img src="website/cook.jpg" alt="Workshops and skills"></div>
-      <div class="card-body">
-        <span class="card-tag">Learn</span>
-        <div class="card-title">Workshops & Skills</div>
-        <div class="card-desc">Composting, seed saving, cooking with fresh produce, Green Skills courses and more.</div>
+    <div class="resources-grid">
+      <div class="resource-card"><div class="resource-icon">📋</div><div class="resource-title">Template Policies & Procedures</div><div class="resource-desc">Health & safety, safeguarding, and volunteering policy templates for community gardens.</div><a href="https://drive.google.com" target="_blank" class="resource-btn">View templates</a></div>
+      <div class="resource-card"><div class="resource-icon">📝</div><div class="resource-title">Meeting Minutes & Agendas</div><div class="resource-desc">Trustee meeting minutes, agendas and action logs.</div><a href="https://drive.google.com" target="_blank" class="resource-btn">View documents</a></div>
+      <div class="resource-card"><div class="resource-icon">💰</div><div class="resource-title">Funding & Grants Guidance</div><div class="resource-desc">Grant application templates and funding guidance for community gardens.</div><a href="https://drive.google.com" target="_blank" class="resource-btn">View guidance</a></div>
+      <div class="resource-card"><div class="resource-icon">📅</div><div class="resource-title">Event Planning Templates</div><div class="resource-desc">Templates for planning community events, workshops and social eating events.</div><a href="https://drive.google.com" target="_blank" class="resource-btn">View templates</a></div>
+      <div class="resource-card"><div class="resource-icon">🌱</div><div class="resource-title">Growing Guides</div><div class="resource-desc">Seasonal growing guides, planting calendars and advice sheets.</div><a href="https://drive.google.com" target="_blank" class="resource-btn">View guides</a></div>
+      <div class="resource-card"><div class="resource-icon">📊</div><div class="resource-title">Annual Reports & Plans</div><div class="resource-desc">NGN annual reports, strategic plans and network updates.</div><a href="https://drive.google.com" target="_blank" class="resource-btn">View reports</a></div>
+    </div>
+  </div>
+
+  <!-- NOTICEBOARD TAB -->
+  <div class="tab-panel" id="tab-noticeboard">
+    <div class="notice-form">
+      <h3>Post a notice</h3>
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" id="notice-author" placeholder="e.g. Barbara Bates">
       </div>
-    </div>
-    <div class="card">
-      <div class="card-img"><img src="website/arabic school3.jpeg" alt="Wellbeing activities"></div>
-      <div class="card-body">
-        <span class="card-tag">Wellbeing</span>
-        <div class="card-title">Wellbeing & Community</div>
-        <div class="card-desc">Outdoor yoga, kids clubs, lunch clubs, biodiversity walks and social eating events.</div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="notice-text" placeholder="Write your notice or update here..." style="min-height:80px;"></textarea>
       </div>
+      <button class="submit-btn" onclick="postNotice()">Post Notice</button>
+    </div>
+    <div class="noticeboard" id="noticeboard">
+      <div class="notice-card"><div class="notice-header"><span class="notice-author">Barbara Bates</span><span class="notice-date">7 Apr 2026</span></div><div class="notice-text">Welcome to the new NGN members area! This is where trustees can share updates and resources. Please make sure you have access to the shared Google Drive folder.</div></div>
+      <div class="notice-card"><div class="notice-header"><span class="notice-author">Rachel Smith</span><span class="notice-date">3 Apr 2026</span></div><div class="notice-text">Reminder that the spring seed swap is coming up on 12th April. Please let your local garden members know and encourage participation across the network.</div></div>
     </div>
   </div>
-</div>
 
-<!-- MAP PREVIEW -->
-<div class="section" style="background: var(--green-pale); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="divider"></div>
-  <h2 class="section-heading">Find Your Local Garden</h2>
-  <p class="section-sub">Click any pin to find contact details for your nearest community garden.</p>
-  <div style="border-radius:14px;overflow:hidden;border:1px solid var(--border);">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1ZNZpT7qmAhnQs_eyu8g1SjJSxXHEdFs&ehbc=2E312F" width="100%" height="400" style="border:none;display:block;"></iframe>
+  <!-- CALENDAR TAB -->
+  <div class="tab-panel" id="tab-calendar">
+    <h2 style="font-size:18px;font-weight:700;color:var(--green-dark);margin-bottom:0.5rem;">Upcoming Trustee Dates</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:1.5rem;">Key dates for the NGN trustee calendar.</p>
+    <div class="calendar-grid">
+      <div class="cal-item"><div class="cal-date"><span class="cal-day">12</span><span class="cal-month">Apr</span></div><div class="cal-info"><div class="cal-title">Spring Seed Swap</div><div class="cal-detail">Network wide event · 10am–2pm</div></div></div>
+      <div class="cal-item"><div class="cal-date"><span class="cal-day">27</span><span class="cal-month">Apr</span></div><div class="cal-info"><div class="cal-title">NTU Project Deadline</div><div class="cal-detail">Student team submission · 2:30pm</div></div></div>
+      <div class="cal-item"><div class="cal-date"><span class="cal-day">1</span><span class="cal-month">May</span></div><div class="cal-info"><div class="cal-title">NTU Poster Presentation</div><div class="cal-detail">Student team poster presentation on campus</div></div></div>
+      <div class="cal-item"><div class="cal-date"><span class="cal-day">3</span><span class="cal-month">May</span></div><div class="cal-info"><div class="cal-title">Community Lunch Club</div><div class="cal-detail">Monthly social lunch · 12noon–2pm</div></div></div>
+      <div class="cal-item"><div class="cal-date"><span class="cal-day">15</span><span class="cal-month">May</span></div><div class="cal-info"><div class="cal-title">Trustee Meeting</div><div class="cal-detail">NGN trustees quarterly meeting</div></div></div>
+      <div class="cal-item"><div class="cal-date"><span class="cal-day">10</span><span class="cal-month">May</span></div><div class="cal-info"><div class="cal-title">Children's Environmental Club</div><div class="cal-detail">Network wide · 10am–12noon</div></div></div>
+    </div>
   </div>
-  <div style="margin-top:1rem;text-align:center;">
-    <a href="gardens.html" class="btn-primary">View All 35 Gardens</a>
-  </div>
-</div>
 
-<!-- PHOTO GALLERY TEASER -->
-<div class="section">
-  <div class="divider"></div>
-  <h2 class="section-heading">Life in our gardens</h2>
-  <p class="section-sub">A glimpse of what happens across the Nottingham Growing Network every week.</p>
-  <div class="gallery-grid">
-    <div class="gallery-item"><img src="website/bike ride.jpg" alt="Community bike ride"></div>
-    <div class="gallery-item"><img src="website/Fam cook 25.jpg" alt="Family cooking"></div>
-    <div class="gallery-item"><img src="website/drumming oct 25 - Copy.jpg" alt="Drumming event"></div>
+  <!-- TRUSTEE DIRECTORY TAB -->
+  <div class="tab-panel" id="tab-trustees">
+    <h2 style="font-size:18px;font-weight:700;color:var(--green-dark);margin-bottom:0.5rem;">Trustee Contact Directory</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:1.5rem;">Contact details for all NGN trustees. Keep this information confidential.</p>
+    <div class="trustees-grid">
+      <div class="trustee-card"><div class="trustee-avatar">B</div><div class="trustee-name">Barbara Bates</div><div class="trustee-email">barbara@bulwellforestgarden.co.uk</div><div class="trustee-role">Founder · Bulwell Forest Garden</div><div style="margin-top:6px;font-size:12px;color:var(--text-muted);">📞 07890 557854</div></div>
+      <div class="trustee-card"><div class="trustee-avatar">J</div><div class="trustee-name">Jo Lees</div><div class="trustee-email">jo.lees.ngn@gmail.com</div><div class="trustee-role">Trustee</div></div>
+      <div class="trustee-card"><div class="trustee-avatar">R</div><div class="trustee-name">Rachel Smith</div><div class="trustee-email">rachel.smith.ngn@gmail.com</div><div class="trustee-role">Trustee · Arkwright Meadows</div><div style="margin-top:6px;font-size:12px;color:var(--text-muted);">📞 0115 986 7777</div></div>
+      <div class="trustee-card"><div class="trustee-avatar">A</div><div class="trustee-name">Audrey Leach</div><div class="trustee-email">audreyleach@outlook.com</div><div class="trustee-role">Trustee · Summerwood Garden</div></div>
+      <div class="trustee-card"><div class="trustee-avatar">T</div><div class="trustee-name">Tracey Lloyd</div><div class="trustee-email">tracey.lloyd.ngn@gmail.com</div><div class="trustee-role">Trustee</div></div>
+    </div>
   </div>
-</div>
 
-<!-- NEWSLETTER -->
-<div class="newsletter-strip">
-  <div class="newsletter-text">
-    <h3>Stay connected</h3>
-    <p>Get updates on events, activities and news from across the network.</p>
+  <!-- SECURITY/SETTINGS TAB -->
+  <div class="tab-panel" id="tab-security">
+    <h2 style="font-size:18px;font-weight:700;color:var(--green-dark);margin-bottom:0.5rem;">Security Settings</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:1.5rem;">Update the members area password. Share any new password with all trustees.</p>
+    <div class="security-box">
+      <h3>Change Password</h3>
+      <p>Enter the current password and your new password below.</p>
+      <div class="success-banner" id="change-success" style="display:none;">Password changed! Share the new password with all trustees.</div>
+      <div class="error-msg" id="change-error" style="display:none;">Incorrect current password.</div>
+      <div class="form-group"><label>Current password</label><input type="password" id="current-password" placeholder="Enter current password"></div>
+      <div class="form-group"><label>New password</label><input type="password" id="new-password" placeholder="Enter new password"></div>
+      <div class="form-group"><label>Confirm new password</label><input type="password" id="confirm-password" placeholder="Confirm new password"></div>
+      <button class="login-btn" onclick="changePassword()" style="margin-top:4px;">Update Password</button>
+    </div>
   </div>
-  <div class="newsletter-form">
-    <input type="email" id="nl-email" placeholder="Your email address">
-    <button onclick="subscribeNewsletter()">Subscribe</button>
-  </div>
-</div>
-
-<!-- CTA STRIP -->
-<div style="background:var(--green-dark);padding:2rem;text-align:center;">
-  <h2 style="color:#C0DD97;font-size:20px;margin-bottom:0.5rem;">Ready to get involved?</h2>
-  <p style="color:rgba(255,255,255,0.75);font-size:14px;margin-bottom:1rem;">Find your nearest community garden and start growing with your community today.</p>
-  <a href="getinvolved.html" class="btn-primary" style="background:var(--green-mid);">Get Involved</a>
 </div>
 
 <div id="footer-placeholder"></div>
 <script src="nav.js"></script>
 <script>
-function subscribeNewsletter() {
-  const email = document.getElementById('nl-email').value;
-  if (email && email.includes('@')) {
-    alert('Thank you for subscribing! We will be in touch soon.');
-    document.getElementById('nl-email').value = '';
+let currentPassword = localStorage.getItem('ngn_password') || 'Adim@NGN@Only@Allow22';
+
+function login() {
+  const input = document.getElementById('password').value;
+  if (input === currentPassword) {
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('members-content').style.display = 'block';
+    document.getElementById('error-msg').style.display = 'none';
   } else {
-    alert('Please enter a valid email address.');
+    document.getElementById('error-msg').style.display = 'block';
+    document.getElementById('password').value = '';
   }
+}
+
+function logout() {
+  document.getElementById('login-section').style.display = 'flex';
+  document.getElementById('members-content').style.display = 'none';
+  document.getElementById('password').value = '';
+}
+
+function showTab(id, el) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.members-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+}
+
+function postNotice() {
+  const author = document.getElementById('notice-author').value.trim();
+  const text = document.getElementById('notice-text').value.trim();
+  if (!author || !text) { alert('Please fill in both fields.'); return; }
+  const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  const card = document.createElement('div');
+  card.className = 'notice-card';
+  card.innerHTML = `<div class="notice-header"><span class="notice-author">${author}</span><span class="notice-date">${today}</span></div><div class="notice-text">${text}</div>`;
+  document.getElementById('noticeboard').prepend(card);
+  document.getElementById('notice-author').value = '';
+  document.getElementById('notice-text').value = '';
+}
+
+function changePassword() {
+  const current = document.getElementById('current-password').value;
+  const newPass = document.getElementById('new-password').value;
+  const confirm = document.getElementById('confirm-password').value;
+  const success = document.getElementById('change-success');
+  const error = document.getElementById('change-error');
+  success.style.display = 'none';
+  error.style.display = 'none';
+  if (current !== currentPassword) { error.style.display = 'block'; error.textContent = 'Incorrect current password.'; return; }
+  if (newPass !== confirm) { error.style.display = 'block'; error.textContent = 'New passwords do not match.'; return; }
+  if (newPass.length < 8) { error.style.display = 'block'; error.textContent = 'Password must be at least 8 characters.'; return; }
+  currentPassword = newPass;
+  localStorage.setItem('ngn_password', newPass);
+  success.style.display = 'block';
+  document.getElementById('current-password').value = '';
+  document.getElementById('new-password').value = '';
+  document.getElementById('confirm-password').value = '';
 }
 </script>
 </body>
