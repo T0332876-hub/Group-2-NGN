@@ -1,1 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Members Area — Nottingham Growing Network</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .login-wrapper { min-height: 60vh; display: flex; align-items: center; justify-content: center; background: var(--green-pale); padding: 3rem 2rem; }
+  .login-box { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; width: 100%; max-width: 420px; }
+  .login-box h2 { font-size: 22px; font-weight: 700; color: var(--green-dark); margin-bottom: 0.5rem; }
+  .login-box p { font-size: 13px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .form-group input { width: 100%; padding: 11px 14px; border-radius: 10px; border: 1.5px solid var(--border); font-family: 'Nunito Sans', sans-serif; font-size: 14px; outline: none; transition: border 0.2s; }
+  .form-group input:focus { border-color: var(--green-mid); }
+  .login-btn { width: 100%; padding: 12px; background: var(--green-dark); color: white; border: none; border-radius: 24px; font-size: 14px; font-weight: 600; font-family: 'Nunito Sans', sans-serif; cursor: pointer; margin-top: 6px; transition: background 0.2s; }
+  .login-btn:hover { background: #2d5509; }
+  .error-msg { background: #FCEBEB; color: #A32D2D; border: 1px solid #F09595; border-radius: 10px; padding: 10px 14px; font-size: 13px; margin-bottom: 14px; display: none; }
+  .members-content { display: none; }
+  .members-header { background: var(--green-dark); padding: 2rem; color: white; }
+  .members-header h1 { font-size: 24px; font-weight: 700; color: #C0DD97; margin-bottom: 0.3rem; }
+  .members-header p { font-size: 14px; color: rgba(255,255,255,0.75); }
+  .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.5rem; }
+  .resource-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .resource-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--green-light); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 20px; }
+  .resource-title { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; }
+  .resource-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+  .resource-link { font-size: 13px; font-weight: 600; color: var(--green-mid); text-decoration: none; }
+  .change-password-box { background: var(--green-pale); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; max-width: 420px; }
+  .change-password-box h3 { font-size: 16px; font-weight: 700; color: var(--green-dark); margin-bottom: 0.5rem; }
+  .change-password-box p { font-size: 13px; color: var(--text-muted); margin-bottom: 1rem; }
+  .success-msg { background: #EAF3DE; color: #1B5E20; border: 1px solid #C0DD97; border-radius: 10px; padding: 10px 14px; font-size: 13px; margin-bottom: 14px; display: none; }
+  .logout-btn { background: transparent; border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; font-family: 'Nunito Sans', sans-serif; cursor: pointer; float: right; }
+  .logout-btn:hover { background: rgba(255,255,255,0.1); }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
 
+<!-- LOGIN SECTION -->
+<div class="login-wrapper" id="login-section">
+  <div class="login-box">
+    <div style="text-align:center; margin-bottom:1.5rem;">
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--green-light);border:2px solid var(--border);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:24px;">🔒</div>
+      <h2>Members Area</h2>
+      <p>This area is for NGN trustees and community garden coordinators only. Enter the password to access shared resources.</p>
+    </div>
+    <div class="error-msg" id="error-msg">Incorrect password. Please try again or contact your NGN trustee.</div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter members password" onkeydown="if(event.key==='Enter') login()" />
+    </div>
+    <button class="login-btn" onclick="login()">Log In</button>
+    <p style="font-size:12px; color:var(--text-muted); margin-top:1rem; text-align:center;">For access issues contact <strong>barbara@bulwellforestgarden.co.uk</strong></p>
+  </div>
+</div>
+
+<!-- MEMBERS CONTENT (hidden until login) -->
+<div class="members-content" id="members-content">
+  <div class="members-header">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <h1>Welcome to the Members Area</h1>
+        <p>Shared resources for NGN trustees and community garden coordinators.</p>
+      </div>
+      <button class="logout-btn" onclick="logout()">Log Out</button>
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <div class="section">
+    <div class="divider"></div>
+    <h2 class="section-heading">Shared Resources</h2>
+    <p class="section-sub">Template documents and resources for community garden coordinators across the NGN network.</p>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-icon">📋</div>
+        <div class="resource-title">Template Policies & Procedures</div>
+        <div class="resource-desc">Standard policy templates for community gardens including health & safety, safeguarding, and volunteering policies.</div>
+        <a href="#" class="resource-link">View templates →</a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">📝</div>
+        <div class="resource-title">Meeting Minutes & Agendas</div>
+        <div class="resource-desc">Trustee meeting minutes, agendas and action logs. Keep track of decisions and progress across the network.</div>
+        <a href="#" class="resource-link">View documents →</a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">💰</div>
+        <div class="resource-title">Funding & Grants Guidance</div>
+        <div class="resource-desc">Information on applying for grants and funding as a community garden. Template applications and guidance notes.</div>
+        <a href="#" class="resource-link">View guidance →</a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">📅</div>
+        <div class="resource-title">Event Planning Templates</div>
+        <div class="resource-desc">Templates for planning community events, volunteer sessions, workshops and social eating events.</div>
+        <a href="#" class="resource-link">View templates →</a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">🌱</div>
+        <div class="resource-title">Growing Guides</div>
+        <div class="resource-desc">Seasonal growing guides, planting calendars and advice sheets for community garden coordinators.</div>
+        <a href="#" class="resource-link">View guides →</a>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">📞</div>
+        <div class="resource-title">Trustee Contact Directory</div>
+        <div class="resource-desc">Contact details for all NGN trustees and garden coordinators across the network.</div>
+        <a href="#" class="resource-link">View contacts →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANGE PASSWORD -->
+  <div class="section" style="background: var(--green-pale); border-top: 1px solid var(--border);">
+    <div class="divider"></div>
+    <h2 class="section-heading">Security Settings</h2>
+    <p class="section-sub">Update the members area password. Make sure to share the new password with all trustees.</p>
+    <div class="change-password-box">
+      <h3>Change Members Password</h3>
+      <p>Enter the current password and your new password below. The new password will take effect immediately.</p>
+      <div class="success-msg" id="change-success">Password changed successfully! Make sure to share the new password with all trustees.</div>
+      <div class="error-msg" id="change-error" style="display:none;">Current password is incorrect.</div>
+      <div class="form-group">
+        <label>Current Password</label>
+        <input type="password" id="current-password" placeholder="Enter current password" />
+      </div>
+      <div class="form-group">
+        <label>New Password</label>
+        <input type="password" id="new-password" placeholder="Enter new password" />
+      </div>
+      <div class="form-group">
+        <label>Confirm New Password</label>
+        <input type="password" id="confirm-password" placeholder="Confirm new password" />
+      </div>
+      <button class="login-btn" onclick="changePassword()">Update Password</button>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
+<script>
+  let currentPassword = localStorage.getItem('ngn_password') || 'Adim@NGN@Only@Allow22';
+
+  function login() {
+    const input = document.getElementById('password').value;
+    const error = document.getElementById('error-msg');
+    if (input === currentPassword) {
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('members-content').style.display = 'block';
+      error.style.display = 'none';
+    } else {
+      error.style.display = 'block';
+      document.getElementById('password').value = '';
+    }
+  }
+
+  function logout() {
+    document.getElementById('login-section').style.display = 'flex';
+    document.getElementById('members-content').style.display = 'none';
+    document.getElementById('password').value = '';
+  }
+
+  function changePassword() {
+    const current = document.getElementById('current-password').value;
+    const newPass = document.getElementById('new-password').value;
+    const confirm = document.getElementById('confirm-password').value;
+    const success = document.getElementById('change-success');
+    const error = document.getElementById('change-error');
+
+    success.style.display = 'none';
+    error.style.display = 'none';
+
+    if (current !== currentPassword) {
+      error.style.display = 'block';
+      error.textContent = 'Current password is incorrect.';
+      return;
+    }
+    if (newPass !== confirm) {
+      error.style.display = 'block';
+      error.textContent = 'New passwords do not match.';
+      return;
+    }
+    if (newPass.length < 8) {
+      error.style.display = 'block';
+      error.textContent = 'New password must be at least 8 characters.';
+      return;
+    }
+
+    currentPassword = newPass;
+    localStorage.setItem('ngn_password', newPass);
+    success.style.display = 'block';
+    document.getElementById('current-password').value = '';
+    document.getElementById('new-password').value = '';
+    document.getElementById('confirm-password').value = '';
+  }
+</script>
+</body>
+</html>
