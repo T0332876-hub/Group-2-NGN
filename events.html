@@ -7,18 +7,20 @@
 <link rel="stylesheet" href="styles.css">
 <style>
   .events-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 1.5rem; }
-  .event-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 20px; display: flex; gap: 16px; align-items: flex-start; transition: transform 0.2s; }
+  .event-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform 0.2s; display: flex; }
   .event-card:hover { transform: translateY(-2px); }
-  .event-date { background: var(--green-dark); color: white; border-radius: 10px; padding: 10px 14px; text-align: center; min-width: 56px; flex-shrink: 0; }
-  .event-day { font-size: 22px; font-weight: 700; display: block; color: #C0DD97; }
+  .event-photo { width: 120px; flex-shrink: 0; overflow: hidden; }
+  .event-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .event-body { padding: 16px; flex: 1; display: flex; gap: 12px; }
+  .event-date { background: var(--green-dark); color: white; border-radius: 10px; padding: 10px 12px; text-align: center; min-width: 52px; flex-shrink: 0; align-self: flex-start; }
+  .event-day { font-size: 20px; font-weight: 700; display: block; color: #C0DD97; }
   .event-month { font-size: 11px; display: block; color: rgba(255,255,255,0.75); text-transform: uppercase; }
   .event-info { flex: 1; }
-  .event-title { font-size: 15px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; }
-  .event-detail { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px; }
-  .event-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .event-title { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
+  .event-detail { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 8px; }
+  .event-meta { display: flex; gap: 8px; flex-wrap: wrap; }
   .event-tag { display: inline-block; background: var(--green-light); color: var(--green-dark); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 12px; }
   .event-time { font-size: 12px; color: var(--text-muted); }
-  .recurring-section { background: var(--green-pale); border-top: 1px solid var(--border); }
   .recurring-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 1.5rem; }
   .recurring-item { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
   .recurring-garden { font-size: 13px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
@@ -29,92 +31,115 @@
 <body>
 <div id="nav-placeholder"></div>
 
-<div class="page-header">
-  <h1>Events & Activities</h1>
-  <p>Upcoming events and regular activities happening across Nottingham Growing Network's 35 community gardens.</p>
+<div class="photo-hero">
+  <img src="website/bike ride.jpg" alt="Community event">
+  <div class="photo-hero-overlay">
+    <div class="photo-hero-text">
+      <h1>Events & <em>Activities</em></h1>
+      <p>Upcoming events and regular sessions happening across our 35 community gardens.</p>
+    </div>
+  </div>
 </div>
 
 <!-- UPCOMING EVENTS -->
 <div class="section">
   <div class="divider"></div>
   <h2 class="section-heading">Upcoming Events</h2>
-  <p class="section-sub">Events happening across our network. Contact your local garden for more details.</p>
+  <p class="section-sub">Contact your local garden for more details on any of these events.</p>
   <div class="events-grid">
     <div class="event-card">
-      <div class="event-date"><span class="event-day">12</span><span class="event-month">Apr</span></div>
-      <div class="event-info">
-        <div class="event-title">Spring Seed Swap</div>
-        <div class="event-detail">Bring your spare seeds and swap with other growers across the network. All welcome — no experience needed. A great way to meet your local growing community.</div>
-        <div class="event-meta"><span class="event-tag">Multiple Gardens</span><span class="event-tag">Free</span><span class="event-time">10am — 2pm</span></div>
+      <div class="event-photo"><img src="website/harvest.jpg" alt="Seed swap"></div>
+      <div class="event-body">
+        <div class="event-date"><span class="event-day">12</span><span class="event-month">Apr</span></div>
+        <div class="event-info">
+          <div class="event-title">Spring Seed Swap</div>
+          <div class="event-detail">Bring spare seeds and swap with growers across the network. All welcome.</div>
+          <div class="event-meta"><span class="event-tag">Multiple Gardens</span><span class="event-tag">Free</span><span class="event-time">10am–2pm</span></div>
+        </div>
       </div>
     </div>
     <div class="event-card">
-      <div class="event-date"><span class="event-day">19</span><span class="event-month">Apr</span></div>
-      <div class="event-info">
-        <div class="event-title">Volunteer Gardening Morning</div>
-        <div class="event-detail">Join us for a morning of community gardening. Help plant, weed, water and tend to the garden. No experience needed — just bring enthusiasm and wear clothes you don't mind getting dirty!</div>
-        <div class="event-meta"><span class="event-tag">Network Wide</span><span class="event-tag">Free</span><span class="event-time">10am — 12noon</span></div>
+      <div class="event-photo"><img src="website/vols.jpg" alt="Volunteering"></div>
+      <div class="event-body">
+        <div class="event-date"><span class="event-day">19</span><span class="event-month">Apr</span></div>
+        <div class="event-info">
+          <div class="event-title">Volunteer Gardening Morning</div>
+          <div class="event-detail">Join us for community gardening. No experience needed — just enthusiasm!</div>
+          <div class="event-meta"><span class="event-tag">Network Wide</span><span class="event-tag">Free</span><span class="event-time">10am–12noon</span></div>
+        </div>
       </div>
     </div>
     <div class="event-card">
-      <div class="event-date"><span class="event-day">26</span><span class="event-month">Apr</span></div>
-      <div class="event-info">
-        <div class="event-title">Green Skills Workshop</div>
-        <div class="event-detail">Learn practical sustainable growing skills including composting, natural pest control, seed saving and growing from cuttings. Suitable for complete beginners and experienced growers alike.</div>
-        <div class="event-meta"><span class="event-tag">Skills</span><span class="event-tag">Free</span><span class="event-time">1pm — 3pm</span></div>
+      <div class="event-photo"><img src="website/20220604_140022.jpg" alt="Workshop"></div>
+      <div class="event-body">
+        <div class="event-date"><span class="event-day">26</span><span class="event-month">Apr</span></div>
+        <div class="event-info">
+          <div class="event-title">Green Skills Workshop</div>
+          <div class="event-detail">Learn composting, natural pest control and sustainable growing techniques.</div>
+          <div class="event-meta"><span class="event-tag">Skills</span><span class="event-tag">Free</span><span class="event-time">1pm–3pm</span></div>
+        </div>
       </div>
     </div>
     <div class="event-card">
-      <div class="event-date"><span class="event-day">3</span><span class="event-month">May</span></div>
-      <div class="event-info">
-        <div class="event-title">Community Lunch Club</div>
-        <div class="event-detail">Join our monthly social lunch cooked using fresh produce from our gardens. A warm, welcoming space for everyone in the community. Food is free and all are welcome.</div>
-        <div class="event-meta"><span class="event-tag">Social</span><span class="event-tag">Free</span><span class="event-time">12noon — 2pm</span></div>
+      <div class="event-photo"><img src="website/cook.jpg" alt="Community lunch"></div>
+      <div class="event-body">
+        <div class="event-date"><span class="event-day">3</span><span class="event-month">May</span></div>
+        <div class="event-info">
+          <div class="event-title">Community Lunch Club</div>
+          <div class="event-detail">Monthly social lunch cooked using fresh garden produce. Free to attend.</div>
+          <div class="event-meta"><span class="event-tag">Social</span><span class="event-tag">Free</span><span class="event-time">12noon–2pm</span></div>
+        </div>
       </div>
     </div>
     <div class="event-card">
-      <div class="event-date"><span class="event-day">10</span><span class="event-month">May</span></div>
-      <div class="event-info">
-        <div class="event-title">Children's Environmental Club</div>
-        <div class="event-detail">A fun outdoor session for children aged 5-12. Learn about nature, growing food, wildlife and the environment through hands-on activities in the garden.</div>
-        <div class="event-meta"><span class="event-tag">Children</span><span class="event-tag">Free</span><span class="event-time">10am — 12noon</span></div>
+      <div class="event-photo"><img src="website/arabic school3.jpeg" alt="Children's club"></div>
+      <div class="event-body">
+        <div class="event-date"><span class="event-day">10</span><span class="event-month">May</span></div>
+        <div class="event-info">
+          <div class="event-title">Children's Environmental Club</div>
+          <div class="event-detail">Outdoor session for children aged 5–12 — nature, growing and wildlife.</div>
+          <div class="event-meta"><span class="event-tag">Children</span><span class="event-tag">Free</span><span class="event-time">10am–12noon</span></div>
+        </div>
       </div>
     </div>
     <div class="event-card">
-      <div class="event-date"><span class="event-day">17</span><span class="event-month">May</span></div>
-      <div class="event-info">
-        <div class="event-title">Outdoor Yoga in the Garden</div>
-        <div class="event-detail">A gentle outdoor yoga session in one of our beautiful community gardens. All abilities welcome. Bring a mat if you have one — some mats available to borrow.</div>
-        <div class="event-meta"><span class="event-tag">Wellbeing</span><span class="event-tag">Free</span><span class="event-time">9am — 10am</span></div>
+      <div class="event-photo"><img src="website/drumming oct 25 - Copy.jpg" alt="Drumming event"></div>
+      <div class="event-body">
+        <div class="event-date"><span class="event-day">17</span><span class="event-month">May</span></div>
+        <div class="event-info">
+          <div class="event-title">Community Music & Drumming</div>
+          <div class="event-detail">A fun music session open to all ages. No experience needed — come and join in!</div>
+          <div class="event-meta"><span class="event-tag">Music</span><span class="event-tag">Free</span><span class="event-time">2pm–4pm</span></div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- REGULAR SESSIONS -->
-<div class="section recurring-section">
+<div class="section" style="background:var(--green-pale);border-top:1px solid var(--border);">
   <div class="divider"></div>
   <h2 class="section-heading">Regular Volunteering Sessions</h2>
-  <p class="section-sub">Many of our gardens run regular weekly volunteering sessions. Drop in and get involved — no booking needed.</p>
+  <p class="section-sub">Many gardens run regular weekly sessions. Drop in and get involved — no booking needed.</p>
   <div class="recurring-grid">
-    <div class="recurring-item"><div class="recurring-garden">Arkwright Meadows Community Gardens</div><div class="recurring-detail">Volunteering sessions — no experience needed</div><div class="recurring-days">Tue, Wed, Thu, Sat · 10am-12noon & 1pm-3pm</div></div>
+    <div class="recurring-item"><div class="recurring-garden">Arkwright Meadows</div><div class="recurring-detail">Volunteering sessions — all welcome</div><div class="recurring-days">Tue, Wed, Thu, Sat · 10am-12noon & 1-3pm</div></div>
     <div class="recurring-item"><div class="recurring-garden">Bulwell Forest Garden</div><div class="recurring-detail">Open gardening sessions</div><div class="recurring-days">Mon, Wed, Fri · 1pm-4pm</div></div>
     <div class="recurring-item"><div class="recurring-garden">Ecoworks Community Garden</div><div class="recurring-detail">Open sessions with events on other days</div><div class="recurring-days">Mon & Thu · 10am-3pm</div></div>
-    <div class="recurring-item"><div class="recurring-garden">Green's Windmill Community Garden</div><div class="recurring-detail">Volunteer team managing the garden</div><div class="recurring-days">Fridays · 10am-4pm</div></div>
-    <div class="recurring-item"><div class="recurring-garden">Sherwin Road Community Garden</div><div class="recurring-detail">Open to anyone who lives or works nearby</div><div class="recurring-days">Tuesday evenings · 6:30pm (spring/summer)</div></div>
+    <div class="recurring-item"><div class="recurring-garden">Green's Windmill Garden</div><div class="recurring-detail">Volunteer team managing the garden</div><div class="recurring-days">Fridays · 10am-4pm</div></div>
+    <div class="recurring-item"><div class="recurring-garden">Sherwin Road Garden</div><div class="recurring-detail">Open to anyone who lives or works nearby</div><div class="recurring-days">Tue evenings · 6:30pm (spring/summer)</div></div>
     <div class="recurring-item"><div class="recurring-garden">Summerwood Community Garden</div><div class="recurring-detail">Wellbeing sessions — gardening, DIY, cooking</div><div class="recurring-days">Wednesdays · 11am-2pm</div></div>
-    <div class="recurring-item"><div class="recurring-garden">Windmill Community Gardens</div><div class="recurring-detail">Open gardening and woodworking sessions</div><div class="recurring-days">Mon 10am-1pm · Thu 10am-4pm</div></div>
+    <div class="recurring-item"><div class="recurring-garden">Windmill Community Gardens</div><div class="recurring-detail">Open gardening and woodworking</div><div class="recurring-days">Mon 10am-1pm · Thu 10am-4pm</div></div>
     <div class="recurring-item"><div class="recurring-garden">Wollaton Hall Walled Garden</div><div class="recurring-detail">Restoration and volunteering project</div><div class="recurring-days">Tue & Thu · 9:30am-3pm</div></div>
-    <div class="recurring-item"><div class="recurring-garden">The Field, Strelley</div><div class="recurring-detail">Rewilding, cooking outdoors, free meal together</div><div class="recurring-days">Mondays · 3pm-7pm</div></div>
+    <div class="recurring-item"><div class="recurring-garden">The Field, Strelley</div><div class="recurring-detail">Rewilding and outdoor cooking</div><div class="recurring-days">Mondays · 3pm-7pm</div></div>
   </div>
 </div>
 
 <!-- CTA -->
-<div style="background: var(--green-dark); padding: 2rem; text-align: center;">
-  <h2 style="color: #C0DD97; font-size: 20px; margin-bottom: 0.5rem;">Want to get involved?</h2>
-  <p style="color: rgba(255,255,255,0.75); font-size: 14px; margin-bottom: 1rem;">Find your nearest garden and contact them directly to find out about their events and sessions.</p>
-  <a href="gardens.html" class="btn-primary" style="background: var(--green-mid); margin-right: 12px;">Find a Garden</a>
-  <a href="getinvolved.html" class="btn-primary" style="background: transparent; border: 1.5px solid #C0DD97;">Get Involved</a>
+<div style="background:var(--green-dark);padding:2rem;text-align:center;">
+  <h2 style="color:#C0DD97;font-size:20px;margin-bottom:0.5rem;">Want to get involved?</h2>
+  <p style="color:rgba(255,255,255,0.75);font-size:14px;margin-bottom:1rem;">Find your nearest garden and contact them directly.</p>
+  <a href="gardens.html" class="btn-primary" style="background:var(--green-mid);margin-right:12px;">Find a Garden</a>
+  <a href="getinvolved.html" class="btn-primary" style="background:transparent;border:1.5px solid #C0DD97;">Get Involved</a>
 </div>
 
 <div id="footer-placeholder"></div>
