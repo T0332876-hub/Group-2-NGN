@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Involved — Nottingham Growing Network</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .ways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.5rem; }
+  .way-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform 0.2s; }
+  .way-card:hover { transform: translateY(-2px); }
+  .way-card-img { height: 140px; overflow: hidden; }
+  .way-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .way-card-body { padding: 16px; }
+  .way-title { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; }
+  .way-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .steps-list { margin-top: 1.5rem; }
+  .step-item { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .step-item:last-child { border-bottom: none; }
+  .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--green-dark); color: #C0DD97; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-title { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
+  .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+  .contact-form-box { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; }
+  .contact-form-box h3 { font-size: 18px; font-weight: 700; color: var(--green-dark); margin-bottom: 1rem; }
+  .contact-info-box { display: flex; flex-direction: column; gap: 12px; }
+  .contact-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .contact-name { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
+  .contact-role { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+  .contact-detail { font-size: 13px; color: var(--text); line-height: 1.6; }
+  .contact-detail a { color: var(--green-mid); text-decoration: none; font-weight: 600; }
+  .social-section { background: var(--green-dark); padding: 2.5rem 2rem; text-align: center; }
+  .social-section h2 { color: #C0DD97; font-size: 22px; margin-bottom: 0.5rem; }
+  .social-section p { color: rgba(255,255,255,0.75); font-size: 14px; margin-bottom: 1.5rem; }
+  .social-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 500px; margin: 0 auto; }
+  .social-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 20px; text-align: center; text-decoration: none; transition: background 0.2s; }
+  .social-card:hover { background: rgba(255,255,255,0.15); }
+  .social-card-name { font-size: 15px; font-weight: 700; color: #C0DD97; margin-bottom: 4px; }
+  .social-card-desc { font-size: 12px; color: rgba(255,255,255,0.6); }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="photo-hero">
+  <img src="website/20220604_140022.jpg" alt="Community garden">
+  <div class="photo-hero-overlay">
+    <div class="photo-hero-text">
+      <h1>Get <em>Involved</em></h1>
+      <p>Find your nearest garden, volunteer, join an event, or get in touch with us.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WAYS TO GET INVOLVED -->
+<div class="section">
+  <div class="divider"></div>
+  <h2 class="section-heading">Ways to get involved</h2>
+  <p class="section-sub">There are many ways to be part of Nottingham Growing Network.</p>
+  <div class="ways-grid">
+    <div class="way-card">
+      <div class="way-card-img"><img src="website/vols.jpg" alt="Volunteer"></div>
+      <div class="way-card-body"><div class="way-title">Volunteer at a Garden</div><div class="way-desc">Join one of our 35 gardens as a volunteer. Help grow food and be part of a welcoming community. No experience needed.</div></div>
+    </div>
+    <div class="way-card">
+      <div class="way-card-img"><img src="website/cook.jpg" alt="Community lunch"></div>
+      <div class="way-card-body"><div class="way-title">Join a Lunch Club</div><div class="way-desc">Come along to one of our community lunches where fresh garden produce is cooked and shared. Free and open to all.</div></div>
+    </div>
+    <div class="way-card">
+      <div class="way-card-img"><img src="website/arabic school3.jpeg" alt="Children's activities"></div>
+      <div class="way-card-body"><div class="way-title">Bring the Kids</div><div class="way-desc">Many gardens run children's environmental clubs and family activities. A great way to connect young people with nature.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO START -->
+<div class="section" style="background:var(--green-pale);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="divider"></div>
+  <h2 class="section-heading">How to get started</h2>
+  <div class="steps-list">
+    <div class="step-item"><div class="step-num">1</div><div><div class="step-title">Find your nearest garden</div><div class="step-desc">Use our map on the Gardens page to find the community garden closest to you.</div></div></div>
+    <div class="step-item"><div class="step-num">2</div><div><div class="step-title">Contact the garden directly</div><div class="step-desc">Each garden manages its own activities. Contact them using the email or phone number shown on the map.</div></div></div>
+    <div class="step-item"><div class="step-num">3</div><div><div class="step-title">Turn up and get growing</div><div class="step-desc">Most gardens welcome drop-in volunteers. Just turn up, introduce yourself, and get stuck in!</div></div></div>
+    <div class="step-item"><div class="step-num">4</div><div><div class="step-title">Check our events page</div><div class="step-desc">Keep an eye on our Events page for network-wide events, workshops and community lunches.</div></div></div>
+  </div>
+  <div style="margin-top:1.5rem;">
+    <a href="gardens.html" class="btn-primary" style="margin-right:12px;">Find a Garden</a>
+    <a href="events.html" class="btn-outline">View Events</a>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<div class="section">
+  <div class="divider"></div>
+  <h2 class="section-heading">Contact Us</h2>
+  <p class="section-sub">Get in touch with NGN for general enquiries, partnerships or media requests.</p>
+  <div class="contact-grid">
+    <!-- CONTACT FORM -->
+    <div class="contact-form-box">
+      <h3>Send us a message</h3>
+      <div class="success-banner" id="form-success">Thank you for your message! We will get back to you soon.</div>
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" id="contact-name" placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" id="contact-email" placeholder="e.g. jane@example.com">
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <select id="contact-subject">
+          <option value="">Select a subject...</option>
+          <option>General enquiry</option>
+          <option>Volunteering</option>
+          <option>Partnership / funding</option>
+          <option>Media / press</option>
+          <option>Website feedback</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="contact-message" placeholder="Write your message here..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitForm()">Send Message</button>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div class="contact-info-box">
+      <div class="contact-card">
+        <div class="contact-name">Barbara Bates</div>
+        <div class="contact-role">Founder & Trustee · Bulwell Forest Garden</div>
+        <div class="contact-detail">📧 <a href="mailto:barbara@bulwellforestgarden.co.uk">barbara@bulwellforestgarden.co.uk</a><br>📞 07890 557854</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Rachel Smith</div>
+        <div class="contact-role">Trustee · Arkwright Meadows Community Gardens</div>
+        <div class="contact-detail">📧 <a href="mailto:community@amcsardens.co.uk">community@amcsardens.co.uk</a><br>📞 0115 986 7777</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Audrey Leach</div>
+        <div class="contact-role">Trustee · Summerwood Community Garden</div>
+        <div class="contact-detail">📧 <a href="mailto:audreyleach@outlook.com">audreyleach@outlook.com</a></div>
+      </div>
+      <div class="contact-card" style="background:var(--green-pale);">
+        <div class="contact-name" style="color:var(--green-dark);">For garden-specific enquiries</div>
+        <div class="contact-detail" style="margin-top:4px;">Contact your local garden directly using the details on the <a href="gardens.html">Gardens page</a>. Each garden manages its own activities independently.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section" style="background:var(--green-pale);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="divider"></div>
+  <h2 class="section-heading">Frequently Asked Questions</h2>
+  <p class="section-sub">Common questions about getting involved with NGN.</p>
+  <div style="margin-top:1rem;">
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do I need gardening experience to volunteer? <span class="faq-arrow">▼</span></div><div class="faq-answer">Not at all! All of our community gardens welcome complete beginners. You will learn as you go alongside friendly and experienced growers. Just bring enthusiasm and wear clothes you don't mind getting dirty.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is there a cost to get involved? <span class="faq-arrow">▼</span></div><div class="faq-answer">Almost everything across the NGN network is completely free. Volunteering sessions, community lunches, kids clubs and many workshops are free to attend. Some specialised courses may have a small cost — check with your local garden.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do I find my nearest garden? <span class="faq-arrow">▼</span></div><div class="faq-answer">Visit our Gardens page where you can view an interactive map of all 35 community gardens across Nottingham. Click any pin to see the garden name, address and contact email. You can also search by name, area or postcode.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can children get involved? <span class="faq-arrow">▼</span></div><div class="faq-answer">Yes! Many of our gardens run children's environmental clubs, family activities and kids cooking sessions. Activities and age ranges vary by garden — contact your local garden to find out what they offer for young people.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">I run a community garden — can I join the network? <span class="faq-arrow">▼</span></div><div class="faq-answer">We would love to hear from you! Get in touch with us using the contact form or by emailing Barbara directly. NGN supports community gardens across Nottingham with resources, guidance and advocacy.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How is food from the gardens distributed? <span class="faq-arrow">▼</span></div><div class="faq-answer">Food grown in our community gardens is shared with volunteers who help tend the gardens, donated to local food banks, used in social eating events and offered to the wider community for small donations. Nothing goes to waste!</div></div>
+  </div>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<div class="social-section">
+  <h2>Follow us on social media</h2>
+  <p>Stay up to date with events, activities and news from across the NGN network.</p>
+  <div class="social-cards">
+    <a href="https://www.instagram.com" target="_blank" class="social-card">
+      <div class="social-card-name">Instagram</div>
+      <div class="social-card-desc">Photos, stories and updates from across our gardens</div>
+    </a>
+    <a href="https://www.facebook.com" target="_blank" class="social-card">
+      <div class="social-card-name">Facebook</div>
+      <div class="social-card-desc">Events, news and community updates</div>
+    </a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
+<script>
+function submitForm() {
+  const name = document.getElementById('contact-name').value;
+  const email = document.getElementById('contact-email').value;
+  const message = document.getElementById('contact-message').value;
+  if (!name || !email || !message) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  if (!email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  document.getElementById('form-success').style.display = 'block';
+  document.getElementById('contact-name').value = '';
+  document.getElementById('contact-email').value = '';
+  document.getElementById('contact-subject').value = '';
+  document.getElementById('contact-message').value = '';
+  setTimeout(() => document.getElementById('form-success').style.display = 'none', 5000);
+}
+
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const arrow = el.querySelector('.faq-arrow');
+  answer.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+</script>
+</body>
+</html>
