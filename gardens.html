@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gardens — Nottingham Growing Network</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .map-container { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+  .garden-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 1.5rem; }
+  .garden-item { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+  .garden-name { font-size: 13px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
+  .garden-address { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+  .garden-email { font-size: 12px; color: var(--green-mid); margin-top: 4px; word-break: break-all; }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
 
+<div class="page-header">
+  <h1>Our Community Gardens</h1>
+  <p>Find your nearest Nottingham Growing Network garden. Click any pin on the map to see contact details, then get in touch with that garden directly to find out what they offer.</p>
+</div>
+
+<!-- MAP -->
+<div class="section">
+  <div class="divider"></div>
+  <h2 class="section-heading">35 Gardens Across Nottingham</h2>
+  <p class="section-sub">Each garden is unique and offers different activities. Click a pin to find out more.</p>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1ZNZpT7qmAhnQs_eyu8g1SjJSxXHEdFs&ehbc=2E312F" width="100%" height="600" style="border:none; display:block;"></iframe>
+  </div>
+  <p style="font-size:13px; color:var(--text-muted); margin-top:0.75rem; text-align:center;">Click a pin to see the garden name, address and contact details · Each garden manages its own activities</p>
+</div>
+
+<!-- GARDEN LIST -->
+<div class="section" style="background: var(--green-pale); border-top: 1px solid var(--border);">
+  <div class="divider"></div>
+  <h2 class="section-heading">Full Garden Directory</h2>
+  <p class="section-sub">A complete list of all 35 NGN member gardens with contact details.</p>
+  <div class="garden-list">
+    <div class="garden-item"><div class="garden-name">Arkwright Meadows Community Gardens</div><div class="garden-address">The Meadows, Nottingham NG2 2HZ</div><div class="garden-email">community@amcsardens.co.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Bulwell Forest Garden</div><div class="garden-address">Austin Street, Bulwell, Nottingham NG6 9HE</div><div class="garden-email">admin@bulwellforestgarden.co.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Cripps Health Centre Community Allotment</div><div class="garden-address">University Park, Nottingham NG7</div><div class="garden-email">William.salkeld@nottingham.ac.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Cotgrave Community Gardens</div><div class="garden-address">Cotgrave, Nottingham NG12 3JG</div><div class="garden-email">cotgravecommunitygarden@gmail.com</div></div>
+    <div class="garden-item"><div class="garden-name">Digin Community Garden</div><div class="garden-address">Pastures Lane, Stapleford</div><div class="garden-email">enquiries@diginstapleford.org.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Ecoworks Community Garden</div><div class="garden-address">121 Ransom Road, Nottingham NG3 3LH</div><div class="garden-email">info@ecoworks.org.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Edwards Lane Community Centre Garden</div><div class="garden-address">Alderton Rd, Sherwood NG5 6DX</div><div class="garden-email">support@guidanceandgrowth.org</div></div>
+    <div class="garden-item"><div class="garden-name">GreenHeart Community Garden</div><div class="garden-address">4 Port Arthur Road, Nottingham NG2 4GB</div><div class="garden-email">info@green-heart.org.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Green's Windmill Community Garden</div><div class="garden-address">Windmill Lane, Nottingham NG2 4QB</div><div class="garden-email">green.mill@nottinghamcity.gov.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Growing Skills Garden</div><div class="garden-address">Stockhill Lane, Basford, Nottingham NG6 0LG</div><div class="garden-email">info@pulpfrictioncic.org.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Little Walled Garden Community Hub</div><div class="garden-address">St Martins Road, Bilborough NG8 3AR</div><div class="garden-email">gwfcenquiries@groundwork.org.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Nottingham Organic Gardeners</div><div class="garden-address">Whitemoor Allotments, Nottingham NG8 5FL</div><div class="garden-email">contact@nogs.info</div></div>
+    <div class="garden-item"><div class="garden-name">Nottz Garden Project (9 locations)</div><div class="garden-address">Radford, Hyson Green & Bestwood, NG7</div><div class="garden-email">hello@nottzgardenprojectcic.org</div></div>
+    <div class="garden-item"><div class="garden-name">Peppers Park Garden</div><div class="garden-address">Asda Pocket Park, Hyson Green NG7 5EH</div><div class="garden-email">support@guidanceandgrowth.org</div></div>
+    <div class="garden-item"><div class="garden-name">Primary Arts Centre Community Garden</div><div class="garden-address">33 Seely Road, Lenton NG7 1NU</div><div class="garden-email">admin@weareprimary.org</div></div>
+    <div class="garden-item"><div class="garden-name">Sherwin Road Community Garden</div><div class="garden-address">29 Sherwin Road, Lenton NG7 2FB</div><div class="garden-email">sherwinroadgarden@gmail.com</div></div>
+    <div class="garden-item"><div class="garden-name">Sherwood Community Food Gardens</div><div class="garden-address">Mansfield Road, Sherwood NG5 3FN</div><div class="garden-email">sfoodgardens@gmail.com</div></div>
+    <div class="garden-item"><div class="garden-name">Sowing Sneinton</div><div class="garden-address">Lindum Grove, Sneinton NG2 3GH</div><div class="garden-email">sowingmarket@gmail.com</div></div>
+    <div class="garden-item"><div class="garden-name">Stonebridge City Farm and Gardens</div><div class="garden-address">Stonebridge Road, Nottingham NG3 2FR</div><div class="garden-email">info@stonebridgecityfarm.com</div></div>
+    <div class="garden-item"><div class="garden-name">Summerwood Community Garden</div><div class="garden-address">Summerwood Lane, Clifton NG11 9DR</div><div class="garden-email">audreyleach@outlook.com</div></div>
+    <div class="garden-item"><div class="garden-name">Oliver's Heritage Garden</div><div class="garden-address">Nottingham</div><div class="garden-email">info@staaallotments.org.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Thomas Helwys Baptist Church Garden</div><div class="garden-address">Church St, Lenton NG7 1SJ</div><div class="garden-email">support@guidanceandgrowth.org</div></div>
+    <div class="garden-item"><div class="garden-name">Windmill Community Gardens</div><div class="garden-address">Ascot Road, Bobbers Mill NG8 5HD</div><div class="garden-email">wcgnottingham@gmail.com</div></div>
+    <div class="garden-item"><div class="garden-name">Wollaton Hall Walled Garden</div><div class="garden-address">545 Wollaton Rd, Nottingham NG8 2AA</div><div class="garden-email">volunteer.programme@nottinghamcity.gov.uk</div></div>
+    <div class="garden-item"><div class="garden-name">The Field</div><div class="garden-address">Main Street, Strelley NG8 6PE</div><div class="garden-email">fieldstrelley@fieldstrelley.org</div></div>
+    <div class="garden-item"><div class="garden-name">Bestop Community Garden</div><div class="garden-address">Nottingham (managed by Pulp Friction CiC)</div><div class="garden-email">info@pulpfrictioncic.org.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Grassroots Community Garden</div><div class="garden-address">33a Hungerhill Road, Nottingham NG3 4NB</div><div class="garden-email">info@nottsrefugeeforum.org.uk</div></div>
+    <div class="garden-item"><div class="garden-name">Highbury Hospital Garden</div><div class="garden-address">Highbury Road, Nottingham NG6 9DR</div><div class="garden-email">claire.blakey@nottshc.nhs.uk</div></div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
+</body>
+</html>
