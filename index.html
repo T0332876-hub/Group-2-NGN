@@ -5,57 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nottingham Growing Network</title>
 <link rel="stylesheet" href="styles.css">
-<style>
-  .hero { background: var(--green-pale); padding: 3.5rem 2rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; border-bottom: 1px solid var(--border); }
-  .hero-text h1 { font-size: 32px; font-weight: 700; color: var(--green-dark); line-height: 1.25; margin-bottom: 1rem; }
-  .hero-text h1 em { color: var(--green-mid); font-style: normal; }
-  .hero-text p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .hero-img { border-radius: 16px; border: 3px solid var(--green-mid); overflow: hidden; height: 220px; background: var(--green-light); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
-  .about-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; }
-  .highlight-item { background: var(--green-pale); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
-  .highlight-title { font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
-  .highlight-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
-  .map-preview { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
-</style>
 </head>
 <body>
 <div id="nav-placeholder"></div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-text">
-    <h1>Growing Together,<br><em>Sharing Together</em></h1>
-    <p>Nottingham Growing Network connects 35 community food growing spaces across Nottingham — bringing people together to grow, share and enjoy fresh food for everyone.</p>
-    <div class="hero-btns">
-      <a href="gardens.html" class="btn-primary">Find a Garden</a>
-      <a href="about.html" class="btn-outline">About Us</a>
+<!-- PHOTO HERO -->
+<div class="photo-hero">
+  <img src="website/esol evem - Copy.JPG" alt="NGN community garden event" onerror="this.style.background='#EAF3DE';this.removeAttribute('src')">
+  <div class="photo-hero-overlay">
+    <div class="photo-hero-text">
+      <h1>Growing Together,<br><em>Sharing Together</em></h1>
+      <p>Nottingham Growing Network connects 35 community food growing spaces across Nottingham — bringing people together to grow, share and enjoy fresh food for everyone.</p>
+      <div class="hero-btns">
+        <a href="gardens.html" class="btn-primary">Find a Garden</a>
+        <a href="about.html" class="btn-outline" style="color:white;border-color:rgba(255,255,255,0.6);">About Us</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-img">
-    <svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-      <rect width="340" height="220" fill="#EAF3DE"/>
-      <circle cx="290" cy="40" r="28" fill="#C0DD97" opacity="0.6"/>
-      <rect y="155" width="340" height="65" fill="#97C459" opacity="0.35"/>
-      <rect y="170" width="340" height="50" fill="#639922" opacity="0.25"/>
-      <rect x="20" y="145" width="80" height="28" rx="4" fill="#7B5B3A"/>
-      <rect x="120" y="145" width="80" height="28" rx="4" fill="#7B5B3A"/>
-      <rect x="220" y="145" width="80" height="28" rx="4" fill="#7B5B3A"/>
-      <line x1="45" y1="143" x2="45" y2="118" stroke="#3B6D11" stroke-width="2"/>
-      <ellipse cx="45" cy="112" rx="12" ry="9" fill="#639922"/>
-      <line x1="65" y1="143" x2="65" y2="110" stroke="#3B6D11" stroke-width="2"/>
-      <ellipse cx="65" cy="104" rx="10" ry="8" fill="#97C459"/>
-      <line x1="145" y1="143" x2="145" y2="120" stroke="#3B6D11" stroke-width="2"/>
-      <circle cx="145" cy="114" r="9" fill="#639922"/>
-      <line x1="165" y1="143" x2="165" y2="112" stroke="#3B6D11" stroke-width="2"/>
-      <ellipse cx="165" cy="106" rx="10" ry="9" fill="#97C459"/>
-      <line x1="245" y1="143" x2="245" y2="105" stroke="#3B6D11" stroke-width="2"/>
-      <circle cx="245" cy="99" r="7" fill="#E06B3C" opacity="0.85"/>
-      <line x1="265" y1="143" x2="265" y2="108" stroke="#3B6D11" stroke-width="2"/>
-      <circle cx="265" cy="102" r="6" fill="#E06B3C" opacity="0.85"/>
-      <line x1="0" y1="180" x2="340" y2="180" stroke="#C0DD97" stroke-width="1" stroke-dasharray="6,4"/>
-    </svg>
   </div>
 </div>
 
@@ -68,18 +33,55 @@
 
 <!-- ABOUT SUMMARY -->
 <div class="section">
-  <div class="divider"></div>
-  <h2 class="section-heading">About Nottingham Growing Network</h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>Nottingham Growing Network is a long-standing initiative that builds links between 35 community food growing groups in Nottingham, with a focus on healthy eating, wellbeing, sustainable gardening and biodiversity.</p>
-      <p>Our community gardens teach people how to grow food and cook with fresh ingredients. Food grown is shared with volunteers, local food banks, and the wider community.</p>
-      <a href="about.html" class="btn-primary" style="margin-top:0.5rem;">Read More About Us</a>
-    </div>
+  <div class="about-split">
     <div>
-      <div class="highlight-item"><div class="highlight-title">Who we support</div><div class="highlight-desc">Families with young children, older people living alone, and people with mental health issues and learning difficulties.</div></div>
-      <div class="highlight-item"><div class="highlight-title">Each garden is unique</div><div class="highlight-desc">Every community garden responds to its own local community needs. Find your nearest garden to see what they offer.</div></div>
-      <div class="highlight-item"><div class="highlight-title">How to get involved</div><div class="highlight-desc">Find your nearest garden on our map and contact them directly to get involved.</div></div>
+      <div class="divider"></div>
+      <h2 class="section-heading">About Nottingham Growing Network</h2>
+      <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:1rem;">Nottingham Growing Network builds links between 35 community food growing groups across Nottingham, focusing on healthy eating, wellbeing, sustainable gardening and biodiversity.</p>
+      <p style="font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem;">Our gardens grow food together and share it with volunteers, local food banks, and the wider community. Each garden is unique — find yours and get involved.</p>
+      <a href="about.html" class="btn-primary">Read More</a>
+    </div>
+    <img src="website/green flag 25.jpg" alt="NGN community celebration" onerror="this.style.background='#EAF3DE'">
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <img src="website/harvest.jpg" alt="Garden harvest">
+  <img src="website/cook.jpg" alt="Community cooking">
+  <img src="website/vols.jpg" alt="Volunteers">
+  <img src="website/20220604_140022.jpg" alt="Community garden event">
+</div>
+
+<!-- WHAT WE OFFER -->
+<div class="section">
+  <div class="divider"></div>
+  <h2 class="section-heading">What our gardens offer</h2>
+  <p class="section-sub">Activities vary across our 35 gardens — each garden responds to its own community's needs.</p>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-img"><img src="website/harvest.jpg" alt="Community food growing"></div>
+      <div class="card-body">
+        <span class="card-tag">Growing</span>
+        <div class="card-title">Community Food Growing</div>
+        <div class="card-desc">Grow food together and share it with volunteers, food banks, and the local community. All are welcome.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="website/cook.jpg" alt="Workshops and skills"></div>
+      <div class="card-body">
+        <span class="card-tag">Learn</span>
+        <div class="card-title">Workshops & Skills</div>
+        <div class="card-desc">Composting, seed saving, cooking with fresh produce, Green Skills courses and more.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><img src="website/arabic school3.jpeg" alt="Wellbeing activities"></div>
+      <div class="card-body">
+        <span class="card-tag">Wellbeing</span>
+        <div class="card-title">Wellbeing & Community</div>
+        <div class="card-desc">Outdoor yoga, kids clubs, lunch clubs, biodiversity walks and social eating events.</div>
+      </div>
     </div>
   </div>
 </div>
@@ -88,88 +90,58 @@
 <div class="section" style="background: var(--green-pale); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="divider"></div>
   <h2 class="section-heading">Find Your Local Garden</h2>
-  <p class="section-sub">Click a pin to find contact details for your nearest community garden.</p>
-  <div class="map-preview">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1ZNZpT7qmAhnQs_eyu8g1SjJSxXHEdFs&ehbc=2E312F" width="100%" height="400" style="border:none; display:block;"></iframe>
+  <p class="section-sub">Click any pin to find contact details for your nearest community garden.</p>
+  <div style="border-radius:14px;overflow:hidden;border:1px solid var(--border);">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1ZNZpT7qmAhnQs_eyu8g1SjJSxXHEdFs&ehbc=2E312F" width="100%" height="400" style="border:none;display:block;"></iframe>
   </div>
-  <div style="margin-top:1rem; text-align:center;">
+  <div style="margin-top:1rem;text-align:center;">
     <a href="gardens.html" class="btn-primary">View All 35 Gardens</a>
   </div>
 </div>
 
-<!-- WHAT WE OFFER -->
+<!-- PHOTO GALLERY TEASER -->
 <div class="section">
   <div class="divider"></div>
-  <h2 class="section-heading">What our gardens offer</h2>
-  <p class="section-sub">Activities vary by garden — here are some of the things you might find across our network.</p>
-  <div class="cards-grid">
-    <div class="card">
-      <div class="card-img">
-        <svg viewBox="0 0 140 110" xmlns="http://www.w3.org/2000/svg" width="140" height="110">
-          <rect width="140" height="110" fill="#EAF3DE"/>
-          <rect x="20" y="70" width="100" height="22" rx="3" fill="#97C459" opacity="0.5"/>
-          <line x1="50" y1="70" x2="50" y2="42" stroke="#3B6D11" stroke-width="2"/>
-          <ellipse cx="50" cy="36" rx="14" ry="10" fill="#639922"/>
-          <line x1="80" y1="70" x2="80" y2="38" stroke="#3B6D11" stroke-width="2"/>
-          <ellipse cx="80" cy="32" rx="12" ry="9" fill="#97C459"/>
-          <line x1="100" y1="70" x2="100" y2="44" stroke="#3B6D11" stroke-width="2"/>
-          <ellipse cx="100" cy="38" rx="10" ry="8" fill="#639922"/>
-        </svg>
-      </div>
-      <div class="card-body">
-        <span class="card-tag">Growing</span>
-        <div class="card-title">Community Food Growing</div>
-        <div class="card-desc">Grow food together and share it with volunteers, food banks, and the local community.</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-img">
-        <svg viewBox="0 0 140 110" xmlns="http://www.w3.org/2000/svg" width="140" height="110">
-          <rect width="140" height="110" fill="#EAF3DE"/>
-          <rect x="30" y="55" width="80" height="32" rx="3" fill="#C0DD97" opacity="0.6"/>
-          <circle cx="50" cy="38" r="6" fill="#97C459"/>
-          <circle cx="80" cy="38" r="6" fill="#97C459"/>
-          <circle cx="110" cy="38" r="5" fill="#C0DD97"/>
-          <line x1="50" y1="44" x2="50" y2="55" stroke="#639922" stroke-width="2"/>
-          <line x1="80" y1="44" x2="80" y2="55" stroke="#639922" stroke-width="2"/>
-        </svg>
-      </div>
-      <div class="card-body">
-        <span class="card-tag">Learn</span>
-        <div class="card-title">Workshops & Skills</div>
-        <div class="card-desc">Sessions on composting, seed saving, cooking with fresh produce and Green Skills courses.</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-img">
-        <svg viewBox="0 0 140 110" xmlns="http://www.w3.org/2000/svg" width="140" height="110">
-          <rect width="140" height="110" fill="#EAF3DE"/>
-          <circle cx="50" cy="75" r="6" fill="#E06B3C" opacity="0.7"/>
-          <line x1="50" y1="69" x2="50" y2="52" stroke="#3B6D11" stroke-width="1.5"/>
-          <ellipse cx="50" cy="48" rx="6" ry="5" fill="#97C459"/>
-          <circle cx="90" cy="72" r="6" fill="#C0DD97" opacity="0.8"/>
-          <line x1="90" y1="66" x2="90" y2="50" stroke="#3B6D11" stroke-width="1.5"/>
-          <ellipse cx="90" cy="46" rx="7" ry="5" fill="#639922"/>
-          <ellipse cx="70" cy="38" rx="10" ry="7" fill="#97C459" opacity="0.8" transform="rotate(-25 70 38)"/>
-        </svg>
-      </div>
-      <div class="card-body">
-        <span class="card-tag">Wellbeing</span>
-        <div class="card-title">Wellbeing & Nature</div>
-        <div class="card-desc">Outdoor yoga, kids clubs, lunch clubs, biodiversity walks and social eating events.</div>
-      </div>
-    </div>
+  <h2 class="section-heading">Life in our gardens</h2>
+  <p class="section-sub">A glimpse of what happens across the Nottingham Growing Network every week.</p>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="website/bike ride.jpg" alt="Community bike ride"></div>
+    <div class="gallery-item"><img src="website/Fam cook 25.jpg" alt="Family cooking"></div>
+    <div class="gallery-item"><img src="website/drumming oct 25 - Copy.jpg" alt="Drumming event"></div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-strip">
+  <div class="newsletter-text">
+    <h3>Stay connected</h3>
+    <p>Get updates on events, activities and news from across the network.</p>
+  </div>
+  <div class="newsletter-form">
+    <input type="email" id="nl-email" placeholder="Your email address">
+    <button onclick="subscribeNewsletter()">Subscribe</button>
   </div>
 </div>
 
 <!-- CTA STRIP -->
-<div style="background: var(--green-dark); padding: 2rem; text-align: center;">
-  <h2 style="color: #C0DD97; font-size: 20px; margin-bottom: 0.5rem;">Ready to get involved?</h2>
-  <p style="color: rgba(255,255,255,0.75); font-size: 14px; margin-bottom: 1rem;">Find your nearest community garden and start growing with your community today.</p>
-  <a href="getinvolved.html" class="btn-primary" style="background: var(--green-mid);">Get Involved</a>
+<div style="background:var(--green-dark);padding:2rem;text-align:center;">
+  <h2 style="color:#C0DD97;font-size:20px;margin-bottom:0.5rem;">Ready to get involved?</h2>
+  <p style="color:rgba(255,255,255,0.75);font-size:14px;margin-bottom:1rem;">Find your nearest community garden and start growing with your community today.</p>
+  <a href="getinvolved.html" class="btn-primary" style="background:var(--green-mid);">Get Involved</a>
 </div>
 
 <div id="footer-placeholder"></div>
 <script src="nav.js"></script>
+<script>
+function subscribeNewsletter() {
+  const email = document.getElementById('nl-email').value;
+  if (email && email.includes('@')) {
+    alert('Thank you for subscribing! We will be in touch soon.');
+    document.getElementById('nl-email').value = '';
+  } else {
+    alert('Please enter a valid email address.');
+  }
+}
+</script>
 </body>
 </html>
