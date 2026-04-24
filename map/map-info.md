@@ -10,4 +10,4 @@ Google My Maps (free)
 35 gardens across Nottingham
 
 ## Data Source
-Barbara Bates — NGN Community Gardens PDF
+Barbara Bates NGN Community Gardens PDF
